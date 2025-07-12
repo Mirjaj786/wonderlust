@@ -1,0 +1,102 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+      <div class="search-box search my-4">
+        <form class="d-flex" role="search" action="/search" method="POST">
+          <input class="form-control me-2 search-input" type="search" name="searchQuery" placeholder="Search destination" />
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>Search
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div id="filters">
+    <div class="filter">
+      <div><i class="fa-solid fa-fire filter-icon"></i></div>
+      <p>Trending</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-bed filter-icon"></i></div>
+      <p>Room</p>
+    </div>
+
+    <div class="filter">
+      <div><i class="fa-solid fa-umbrella-beach filter-icon"></i>
+      </div>
+      <p>Beach</p>
+    </div>
+
+    <div class="filter">
+      <div><i class="fa-solid fa-mountain-city filter-icon"></i></div>
+      <p>Iconic Cities</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-mountain filter-icon"></i></div>
+      <p>Mountains</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-brands fa-fort-awesome filter-icon"></i></div>
+      <p>Castles</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-person-swimming filter-icon"></i></div>
+      <p>Amazing Pools</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-campground filter-icon"></i></div>
+      <p>Camping</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-snowflake filter-icon"></i></div>
+      <p>Arctic</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-sailboat filter-icon"></i></div>
+      <p>Boats</p>
+    </div>
+    <div class="tax-taggle">
+      <div class="form-check-reverse form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
+        <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row row-cols-lg-4 row-cols-md-2 row-cols-1 g-3 mt-3">
+    <% for (let listing of allListing) { %>
+      <div class="col">
+        <a href="/listings/<%= listing._id %>" class="text-decoration-none text-dark">
+          <div class="card h-100 listing-card">
+            <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem" />
+            <div class="card-img-overlay"></div>
+            <div class="card-body">
+              <p class="card-text">
+                <strong>
+                  <%= listing.title %>
+                </strong><br />
+                <span>&#8377;</span>
+                <%= typeof listing.price==="number" ? listing.price.toLocaleString("en-IN") : "N/A" %>/Night
+                  <i class="tax-info">&nbsp; &nbsp;&nbsp;+18% GST</i>
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% } %>
+  </div>
+
+
+
+  <!-- <div class="row mt-5">
+  <div class="col-12">
+    <h2>All Listings on Map</h2>
+    <div id="index-map" style="height: 500px; width: 100%;"></div>
+  </div>
+</div> -->
+
+  <script src="/js/map.js"></script>
