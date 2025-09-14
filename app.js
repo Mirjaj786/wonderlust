@@ -29,8 +29,6 @@ app.use(methodOverride("_method"));
 app.use(express.static("assest"));
 app.engine("ejs", ejsMate);
 
-// const { execPath } = require("process");
-// let MONGO_URL = "mongodb://127.0.0.1:27017/wonderlust";
 const DB_URL = process.env.ATLAST_URL;
 
 main()
