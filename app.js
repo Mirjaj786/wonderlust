@@ -90,6 +90,10 @@ app.use("/listings/:id/reviews", reviewsRoute);
 app.use("/", userRoute);
 app.use("/search", searchRoute);
 
+app.get("/", (req,res) => {
+  res.render("Users/signup.ejs") 
+})
+
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found!"));
 });
