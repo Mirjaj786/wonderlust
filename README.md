@@ -1,6 +1,6 @@
 🌍 Wanderlust – Travel Accommodation Platform
 
-Tech Stack: Node.js, Express, MongoDB, EJS, Render/Netlify (Deployment), Bootstrap/Tailwind
+Tech Stack: Node.js, Express, MongoDB, EJS, MVC (Deployment), Bootstrap/Tailwind
 
 📌 Problem
 
